@@ -7,7 +7,12 @@
 
       <ul v-if="data">
         <li v-for="movie in data.results" :key="movie.id">
-          <MovieCard :movie="movie" />
+          <MovieCard
+            :id="movie.id"
+            :score="movie.vote_average"
+            :title="movie.title"
+            :poster="movie.poster_path"
+          />
         </li>
       </ul>
 

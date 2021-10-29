@@ -1,12 +1,12 @@
 <template>
   <div class="movie-card">
-    <RouterLink :to="`/movie/${movie.id}`">
+    <RouterLink :to="`/movie/${id}`">
       <figure>
-        <img :src="`https://image.tmdb.org/t/p/w300/${movie.poster_path}`" :alt="`Cover du film ${movie.title}`">
+        <img :src="`https://image.tmdb.org/t/p/w300/${poster}`" :alt="`Cover du film ${title}`">
         <figcaption>
           <ul>
-            <li><strong class="title">{{ movie.title }}</strong></li>
-            <li><span class="score">Score: {{ movie.vote_average }}/10</span></li>
+            <li><strong class="title">{{ title }}</strong></li>
+            <li><span class="score">Score: {{ score }}/10</span></li>
           </ul>
         </figcaption>
       </figure>
@@ -17,8 +17,20 @@
 <script>
 export default {
   props: {
-    movie: {
-      type: Object,
+    id: {
+      type: Number,
+      required: true
+    },
+    score: {
+      type: Number,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    poster: {
+      type: String,
       required: true
     }
   },
